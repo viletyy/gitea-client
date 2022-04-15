@@ -1,0 +1,6 @@
+require_relative 'common'
+require_relative 'api/user'
+require_relative 'api/client'
+require_relative 'api/config'
+require_relative 'api/exception'
+require_relative 'api/http'

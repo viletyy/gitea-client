@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'rest-client'
+require './lib/gitea/api'
+require './lib/gitea/version'
+
+require "irb"
+IRB.start
