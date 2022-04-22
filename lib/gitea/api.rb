@@ -1,4 +1,5 @@
 require_relative 'common'
+require_relative 'api/repository'
 require_relative 'api/settings'
 require_relative 'api/user'
 require_relative 'api/client'

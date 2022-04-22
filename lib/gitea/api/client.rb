@@ -16,6 +16,7 @@ module Gitea
         @http = Http.new(@config)
       end
 
+      include Gitea::Api::Repository
       include Gitea::Api::Settings
       include Gitea::Api::User
     end
