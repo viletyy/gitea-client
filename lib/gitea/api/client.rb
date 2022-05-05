@@ -21,6 +21,7 @@ module Gitea
       include Gitea::Api::Settings
       include Gitea::Api::User
       include Gitea::Api::Organization
+      include Gitea::Api::Notification
     end
   end # User
 end # Gitea
