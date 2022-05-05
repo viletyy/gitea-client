@@ -49,6 +49,10 @@ module Gitea
           @http.patch("/repos/#{owner}/#{repo}/branch_protections/#{name}", opt)
         end
 
+        def get_repos_branch_tag_count_by_owner_repo(owenr, repo, opt={})
+          @http.get("/repos/#{owner}/#{repo}/branch_tag_count", opt)
+        end
+
         def get_repos_branches_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branches", opt)
         end
@@ -109,8 +113,24 @@ module Gitea
           @http.delete("/repos/#{owner}/#{repo}/contents/#{filepath}", opt)
         end
 
+        def get_repos_contributors_by_owner_repo(owner, repo, opt={})
+          @http.get("/repos/#{owner}/#{repo}/contributors", opt)
+        end
+
+        def get_repos_count_by_owner_repo(owner, repo, opt={})
+          @http.get("/repos/#{owner}/#{repo}/count", opt)
+        end
+
         def get_repos_editorconfig_by_owner_repo_filepath(owner, repo, filepath, opt = {})
           @http.get("/repos/#{owner}/#{repo}/editorconfig/#{filepath}", opt)
+        end
+
+        def get_repos_file_commits_by_owner_repo_filepath(owner, repo, filepath, opt={})
+          @http.get("/repos/#{owner}/#{repo}/file_commits/#{filepath}", opt)
+        end
+
+        def get_repos_find_by_owner_repo_filepath(owner, repo, filepath, opt={})
+          @http.get("/repos/#{owner}/#{repo}/find", opt)
         end
 
         def get_repos_forks_by_owner_repo(owner, repo, opt = {})
@@ -181,6 +201,10 @@ module Gitea
           @http.patch("/repos/#{owner}/#{repo}/hooks/#{id}", opt)
         end
 
+        def get_repos_hooks_hooktasks_by_owner_repo_id(owner, repo, id, opt={})
+          @http.get("/repos/#{owner}/#{repo}/hooks/#{id}/hooktasks", opt)
+        end
+
         def post_repos_hooks_tests_by_owner_repo_id(owner, repo, id, opt = {})
           @http.post("/repos/#{owner}/#{repo}/hooks/#{id}/tests", opt)
         end
@@ -219,6 +243,10 @@ module Gitea
 
         def post_repos_pulls_by_owner_repo(owner, repo, opt = {})
           @http.post("/repos/#{owner}/#{repo}/pulls", opt)
+        end
+
+        def get_repos_pulls_by_owner_repo_index(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}", opt)
         end
 
         def patch_repos_pulls_by_owner_repo_index(owner, repo, index, opt = {})
@@ -283,6 +311,14 @@ module Gitea
 
         def get_repos_raw_by_owner_repo_filepath(owner, repo, filepath, opt = {})
           @http.get("/repos/#{owner}/#{repo}/raw/#{filepath}", opt)
+        end
+
+        def get_repos_readme_by_owner_repo(owner, repo, opt={})
+          @http.get("/repos/#{owner}/#{repo}/readme", opt)
+        end
+
+        def get_repos_readme_by_owner_repo_dir(owner, repo, dir, opt={})
+          @http.get("/repos/#{owner}/#{repo}/readme/#{dir}", opt)
         end
 
         def get_repos_releases_by_owner_repo(owner, repo, opt = {})
