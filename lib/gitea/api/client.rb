@@ -22,6 +22,7 @@ module Gitea
       include Gitea::Api::User
       include Gitea::Api::Organization
       include Gitea::Api::Notification
+      include Gitea::Api::Miscellaneous
     end
   end # User
 end # Gitea
