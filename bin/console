@@ -3,8 +3,7 @@
 
 require "bundler/setup"
 require 'rest-client'
-require './lib/gitea/api'
-require './lib/gitea/version'
+require 'gitea-client'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
