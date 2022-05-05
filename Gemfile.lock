@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitea-client (0.2.0)
+    gitea-client (0.2.1)
 
 GEM
   remote: https://gems.ruby-china.com/

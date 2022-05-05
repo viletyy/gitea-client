@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
-require 'rest-client'
 require 'gitea-client'
 
 # You can add fixtures and/or initialization code here to make experimenting
