@@ -166,6 +166,10 @@ module Gitea
         @http.get("/user/#{username}/gpg_keys", opt)
       end
 
+      def get_users_heatmap_by_username(username, opt={})
+        @http.get("/users/#{username}/heatmap", opt)
+      end
+
       def get_users_keys_by_username(username, opt={})
         @http.get("/user/#{username}/keys", opt)
       end
