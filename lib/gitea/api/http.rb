@@ -53,14 +53,13 @@ module Gitea
         headers['user-agent'] = get_user_agent
         headers['date'] = Time.now.httpdate
         headers['content-type'] ||= DEFAULT_CONTENT_TYPE
-        headers[TOKEN_HEADER] = @config.token if @config.token
 
         if @config.username and @config.password
-          headers[TOKEN_HEADER] = 'Basic ' + Base64::Encoding(@config.username + ":" + @config.password)
+          headers[TOKEN_HEADER] = 'Basic ' + Base64::encode64(@config.username + ":" + @config.password)
         end
 
         headers[:params] = http_options[:query] || {}
-
+        headers[:params].merge!({access_token: @config.token}) if @config.token
         logger.debug("Send HTTP request, verb: #{verb}, http_options: #{http_options}")
 
         request = RestClient::Request.new(

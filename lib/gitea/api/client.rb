@@ -20,6 +20,7 @@ module Gitea
       include Gitea::Api::Repository
       include Gitea::Api::Settings
       include Gitea::Api::User
+      include Gitea::Api::Organization
     end
   end # User
 end # Gitea
