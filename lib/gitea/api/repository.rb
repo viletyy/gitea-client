@@ -69,6 +69,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
         end
 
+        def put_repos_collaborators_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
+          @http.put("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
+        end
+
         def delete_repos_collaborators_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
           @http.delete("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
         end
