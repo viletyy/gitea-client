@@ -44,6 +44,7 @@ module Gitea
       include Gitea::Api::Notification
       include Gitea::Api::Miscellaneous
       include Gitea::Api::Admin
+      include Gitea::Api::Activity
     end
   end # User
 end # Gitea
