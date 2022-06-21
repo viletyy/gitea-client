@@ -29,6 +29,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/assignees", opt)
         end
 
+        def get_repos_branch_name_set_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/branch_name_set", opt)
+        end
+
         def get_repos_branch_protections_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branch_protections", opt)
         end
@@ -61,6 +65,10 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/branches", opt)
         end
 
+        def get_repos_branches_branches_slice_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/branches/branches_slice", opt)
+        end
+
         def get_repos_branches_by_owner_repo_branch(owner, repo, branch, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branches/#{branch}", opt)
         end
@@ -91,6 +99,10 @@ module Gitea
 
         def get_repos_commits_statuses_by_owner_repo_ref(owner, repo, ref, opt = {})
           @http.get("/repos/#{owner}/#{repo}/commits/#{ref}/statuses", opt)
+        end
+
+        def get_repos_commits_slice_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/commits_slice", opt)
         end
 
         def get_repos_contents_by_owner_repo(owner, repo, opt = {})
