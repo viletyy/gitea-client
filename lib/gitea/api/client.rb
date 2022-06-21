@@ -16,6 +16,26 @@ module Gitea
         @http = Http.new(@config)
       end
 
+      def config 
+        @config
+      end
+
+      def config=(config)
+        unless config.is_a?(Gitea::Api::Config)
+          fail Exception, "load config failure!"
+        end
+        @config = config
+        @http = Http.new(config)
+      end
+
+      def token 
+        @config.token 
+      end
+
+      def token=(token)
+        @config.token = token 
+      end
+
       include Gitea::Api::Issue
       include Gitea::Api::Repository
       include Gitea::Api::Settings

@@ -5,7 +5,7 @@ module Gitea
         module AttrHelper
           def attrs(*s)
             define_method(:attrs) {s}
-            attr_reader(*s)
+            attr_accessor(*s)
           end
         end
 
