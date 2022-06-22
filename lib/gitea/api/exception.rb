@@ -1,3 +1,4 @@
+require "json"
 module Gitea
   module Api 
     class ServerError < Common::Exception 
@@ -5,11 +6,11 @@ module Gitea
 
       def initialize(response)
         @http_code = response.code 
-
-        puts response
+        @attrs = JSON.parse(response.body) rescue {}
       end
 
       def to_s
+        @attrs.delete('documentation_url')
         @attrs.merge({'HTTPCode' => @http_code}).map do |k, v|
           [k, v].join(": ")
         end.join(", ")

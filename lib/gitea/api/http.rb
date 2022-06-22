@@ -1,4 +1,5 @@
 require 'base64'
+require 'json'
 
 module Gitea
   module Api
@@ -99,7 +100,7 @@ module Gitea
           response.return!
         end        
 
-        response
+        JSON.parse(response)
       end
 
       def get_user_agent
