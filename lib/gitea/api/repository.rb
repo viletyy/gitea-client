@@ -53,7 +53,7 @@ module Gitea
           @http.patch("/repos/#{owner}/#{repo}/branch_protections/#{name}", opt)
         end
 
-        def get_repos_branch_tag_count_by_owner_repo(owenr, repo, opt={})
+        def get_repos_branch_tag_count_by_owner_repo(owner, repo, opt={})
           @http.get("/repos/#{owner}/#{repo}/branch_tag_count", opt)
         end
 
