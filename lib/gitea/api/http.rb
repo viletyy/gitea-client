@@ -30,6 +30,10 @@ module Gitea
         do_request('PUT', api_url, http_options, &block)
       end
 
+      def patch(api_url = '', http_options = {}, &block)
+        do_request('PATCH', api_url, http_options, &block)
+      end
+
       def post(api_url = '', http_options = {}, &block)
         do_request('POST', api_url, http_options, &block)
       end
