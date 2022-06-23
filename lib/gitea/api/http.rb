@@ -104,7 +104,7 @@ module Gitea
           response.return!
         end        
 
-        JSON.parse(response)
+        JSON.parse(response) rescue {}
       end
 
       def get_user_agent
