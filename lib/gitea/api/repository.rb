@@ -69,6 +69,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/branches/branches_slice", opt)
         end
 
+        def get_repos_branches_branches_slice_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/branches/branches_slice", opt)
+        end
+
         def get_repos_branches_by_owner_repo_branch(owner, repo, branch, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branches/#{branch}", opt)
         end
