@@ -29,6 +29,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/assignees", opt)
         end
 
+        def get_repos_blame_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/blame", opt)
+        end
+
         def get_repos_branch_name_set_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branch_name_set", opt)
         end
@@ -111,6 +115,10 @@ module Gitea
 
         def get_repos_contents_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/contents", opt)
+        end
+
+        def post_repos_contents_batch_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/contents/batch", opt)
         end
 
         def get_repos_contents_by_owner_repo_filepath(owner, repo, filepath, opt = {})
