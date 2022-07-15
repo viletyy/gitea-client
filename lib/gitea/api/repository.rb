@@ -54,7 +54,7 @@ module Gitea
         end
 
         def post_repos_branches_by_owner_repo(owner, repo, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/branches", opt)
+          @http.post("/repos/#{owner}/#{repo}/branches", opt)
         end
 
         def get_repos_branches_by_owner_repo_branch(owner, repo, branch, opt = {})
