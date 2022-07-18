@@ -101,6 +101,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/commits", opt)
         end
 
+        def get_repos_commits_diff_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/commits/diff", opt)
+        end
+
         def get_repos_commits_status_by_owner_repo_ref(owner, repo, ref, opt = {})
           @http.get("/repos/#{owner}/#{repo}/commits/#{ref}/status", opt)
         end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitea-client (0.9.1)
+    gitea-client (0.9.2)
       rest-client (~> 2.1.0)
 
 GEM
