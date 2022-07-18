@@ -85,6 +85,10 @@ module Gitea
           @http.delete("/repos/#{owner}/#{repo}/branches/#{branch}", opt)
         end
 
+        def get_repos_compare_by_owner_repo_from_to(owner, repo, from, to, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/compare/#{to}...#{from}", opt)
+        end
+
         def get_repos_collaborators_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
           @http.get("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
         end
