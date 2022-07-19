@@ -29,6 +29,7 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/assignees", opt)
         end
 
+        # get repository blame 
         def get_repos_blame_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/blame", opt)
         end
