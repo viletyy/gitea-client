@@ -104,7 +104,11 @@ module Gitea
           response.return!
         end        
 
-        JSON.parse(response) rescue {}
+        if response.headers.has_key?(:x_total)
+          return {data: JSON.parse(response), total_data: response.headers[:x_total]}
+        else 
+          return JSON.parse(response) 
+        end rescue {}
       end
 
       def get_user_agent
