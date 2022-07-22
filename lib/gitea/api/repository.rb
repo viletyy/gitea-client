@@ -342,6 +342,14 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/pulls/#{index}/update", opt)
         end
 
+        def get_repos_pulls_versions_by_owner_repo_index(owner, repo, index, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/versions", opt)
+        end
+
+        def get_repos_pulls_versions_diff_by_owner_repo_index_version_id(owner, repo, version_id, opt={})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/versions/#{version_id}/diff", opt)
+        end
+
         def get_repos_raw_by_owner_repo_filepath(owner, repo, filepath, opt = {})
           @http.get("/repos/#{owner}/#{repo}/raw/#{filepath}", opt)
         end
