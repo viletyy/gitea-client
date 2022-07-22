@@ -346,7 +346,7 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/versions", opt)
         end
 
-        def get_repos_pulls_versions_diff_by_owner_repo_index_version_id(owner, repo, version_id, opt={})
+        def get_repos_pulls_versions_diff_by_owner_repo_index_version_id(owner, repo, index, version_id, opt={})
           @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/versions/#{version_id}/diff", opt)
         end
 
