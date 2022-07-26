@@ -278,7 +278,7 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/pulls", opt)
         end
 
-        def get_repos_pulls_by_owner_repo_index(owner, repo, opt = {})
+        def get_repos_pulls_by_owner_repo_index(owner, repo, index, opt = {})
           @http.get("/repos/#{owner}/#{repo}/pulls/#{index}", opt)
         end
 
