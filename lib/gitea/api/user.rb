@@ -187,7 +187,7 @@ module Gitea
       end
 
       def post_users_token_by_username(username, opt={})
-        @http.get("/users/#{username}/tokens", opt)
+        @http.post("/users/#{username}/tokens", opt)
       end
 
       def delete_users_token_by_username_token(username, token, opt={})
