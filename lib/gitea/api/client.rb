@@ -13,6 +13,7 @@ module Gitea
       # @option opts [string] gitea_token [选填] 用户token
       def initialize(opts)
         @config = Config.new(opts)
+        Gitea::Common::Logging.set_log_file(@config.log_filepath)
         @http = Http.new(@config)
       end
 

@@ -2,7 +2,7 @@ module Gitea
   module Api
 
     class Config < Common::Struct::Base
-      attrs :domain, :base_url, :username, :password, :token, :open_timeout, :read_timeout
+      attrs :domain, :base_url, :username, :password, :token, :open_timeout, :read_timeout, :log_filepath
 
       def initialize(opts = {})
         super(opts)

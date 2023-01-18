@@ -65,7 +65,10 @@ module Gitea
 
         headers[:params] = http_options[:query] || {}
         headers[:params].merge!({access_token: @config.token}) if @config.token
-        logger.debug("Send HTTP request, verb: #{verb}, http_options: #{http_options}")
+        logger.info("Gitea Client Begin a Request!...")
+        logger.info("Send HTTP request, verb: #{verb}, http_options: #{http_options}")
+        logger.info("Relative Url: #{api_url}")
+        logger.info("Headers: #{headers}")
 
         request = RestClient::Request.new(
           :method => verb,
@@ -102,13 +105,21 @@ module Gitea
           end
           response = RestClient::Response.create(nil, response, request)
           response.return!
-        end        
+        end       
 
-        if response.headers.has_key?(:x_total)
-          return {data: JSON.parse(response), total_data: response.headers[:x_total]}
-        else 
-          return JSON.parse(response) 
-        end rescue {}
+        begin
+          if response.headers.has_key?(:x_total)
+            return {data: JSON.parse(response), total_data: response.headers[:x_total]}
+          else 
+            return JSON.parse(response) 
+          end 
+        rescue => e
+          logger.error(e.to_s)
+          return {}
+        end
+
+        logger.info("Gitea Hat Client Success End a Request!...")
+
       end
 
       def get_user_agent
