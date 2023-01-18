@@ -102,10 +102,6 @@ module Gitea
         @http.get("/user/repos", opt)
       end
 
-      def post_user_repos(opt={})
-        @http.post("/user/repos", opt)
-      end
-
       def get_user_settings(opt={})
         @http.get("/user/settings", opt)
       end
@@ -150,6 +146,10 @@ module Gitea
         @http.get("/users/search", opt)
       end
 
+      def get_users_by_username(username, opt = {})
+        @http.get("/users/#{username}", opt)
+      end
+
       def get_users_following_by_follower_followee(follower, followee, opt={})
         @http.get("/users/#{follower}/following/#{followee}", opt)
       end
@@ -164,6 +164,10 @@ module Gitea
 
       def get_users_gpg_keys_by_username(username, opt={})
         @http.get("/user/#{username}/gpg_keys", opt)
+      end
+
+      def get_users_heatmap_by_username(username, opt = {})
+        @http.get("/users/#{username}/heatmap", opt)
       end
 
       def get_users_keys_by_username(username, opt={})

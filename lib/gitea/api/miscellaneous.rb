@@ -9,6 +9,10 @@ module Gitea
         @http.post("/markdown/new", opt)
       end
 
+      def get_nodeinfo(opt = {})
+        @http.get("/nodeinfo", opt)
+      end
+
       def get_signing_key_gpg(opt={})
         @http.get("/signing-key.gpg", opt)
       end

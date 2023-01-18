@@ -45,6 +45,10 @@ module Gitea
         @http.get("/repos/#{owner}/#{repo}/issues/#{index}", opt)
       end
 
+      def delete_repos_issues_by_owner_repo_index(owner, repo, index, opt = {})
+        @http.delete("/repos/#{owner}/#{repo}/issues/#{index}", opt)
+      end
+
       def patch_repos_issues_by_owner_repo_index(owner, repo, index, opt = {})
         @http.patch("/repos/#{owner}/#{repo}/issues/#{index}", opt)
       end
@@ -119,6 +123,10 @@ module Gitea
 
       def delete_repos_issues_subscriptions_by_owner_repo_index_user(owner, repo, index, user, opt = {})
         @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/subscriptions/#{user}", opt)
+      end
+
+      def get_repos_issues_timeline_owner_repo_index(owner, repo, index, opt = {})
+        @http.get("/repos/#{owner}/#{repo}/issues/#{index}/timeline", opt)
       end
 
       def get_repos_issues_times_by_owner_repo_index(owner, repo, index, opt = {})

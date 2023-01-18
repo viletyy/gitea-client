@@ -141,6 +141,10 @@ module Gitea
         @http.get("/teams/#{id}/repos", opt)
       end
 
+      def get_teams_repos_by_id_org_repo(id, org, repo, opt = {})
+        @http.get("/teams/#{id}/repos/#{org}/#{repo}", opt)
+      end
+
       def put_teams_repos_by_id_org_repo(id, org, repo, opt={})
         @http.put("/teams/#{id}/repos/#{org}/#{repo}", opt)
       end
@@ -154,7 +158,11 @@ module Gitea
       end
 
       def get_users_orgs_by_username(username, opt={})
-        @http.get("/users/#{usernmae}/orgs", opt)
+        @http.get("/users/#{username}/orgs", opt)
+      end
+
+      def get_users_orgs_permissions_by_username_org(username, org, opt={})
+        @http.get("/users/#{username}/orgs/#{org}/permissions", opt)
       end
 
     end # Organization 

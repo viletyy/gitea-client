@@ -65,6 +65,10 @@ module Gitea
           @http.delete("/repos/#{owner}/#{repo}/branches/#{branch}", opt)
         end
 
+        def get_repos_collaborators_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/collaborators", opt)
+        end
+
         def get_repos_collaborators_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
           @http.get("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
         end
@@ -75,6 +79,14 @@ module Gitea
 
         def delete_repos_collaborators_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
           @http.delete("/repos/#{owner}/#{repo}/collaborators/#{collaborator}", opt)
+        end
+
+        def get_repos_pulls_files_by_owner_repo_index(owner, repo, index, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/files", opt)
+        end
+
+        def get_repos_collaborators_permission_by_owner_repo_collaborator(owner, repo, collaborator, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/collaborators/#{collaborator}/permission", opt)
         end
 
         def get_repos_commits_by_owner_repo(owner, repo, opt = {})
@@ -89,8 +101,28 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/commits/#{ref}/statuses", opt)
         end
 
+        def get_repos_push_mirrors_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/push_mirrors", opt)
+        end
+
+        def post_repos_push_mirrors_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/push_mirrors", opt)
+        end
+
         def get_repos_contents_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/contents", opt)
+        end
+
+        def post_repos_push_mirrors_sync_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/push_mirrors-sync", opt)
+        end
+
+        def get_repos_push_mirrors_by_owner_repo_name(owner, repo, name, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/push_mirrors/#{name}", opt)
+        end
+
+        def delete_repos_push_mirrors_by_owner_repo_name(owner, repo, name, opt = {})
+          @http.delete("/repos/#{owner}/#{repo}/push_mirrors/#{name}", opt)
         end
 
         def get_repos_contents_by_owner_repo_filepath(owner, repo, filepath, opt = {})
@@ -107,6 +139,10 @@ module Gitea
 
         def delete_repos_contents_by_owner_repo_filepath(owner, repo, filepath, opt = {})
           @http.delete("/repos/#{owner}/#{repo}/contents/#{filepath}", opt)
+        end
+
+        def post_repos_diffpatch_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/diffpatch", opt)
         end
 
         def get_repos_editorconfig_by_owner_repo_filepath(owner, repo, filepath, opt = {})
@@ -127,6 +163,14 @@ module Gitea
 
         def get_repos_git_commits_by_owner_repo_sha(owner, repo, sha, opt = {})
           @http.get("/repos/#{owner}/#{repo}/git/commits/#{sha}", opt)
+        end
+
+        def get_repos_git_commits_by_owner_repo_sha_difftype(owner, repo, sha, diffType, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/git/commits/#{sha}.#{diffType}", opt)
+        end
+
+        def get_repos_git_notes_by_owner_repo_sha(owner, repo, sha, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/git/notes/#{sha}", opt)
         end
 
         def get_repos_git_refs_by_owner_repo(owner, repo, opt = {})
@@ -209,6 +253,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/languages", opt)
         end
 
+        def get_repos_media_by_owner_repo_filepath(owner, repo, filepath, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/media/#{filepath}", opt)
+        end
+
         def post_repos_mirror_sysnc_by_owner_repo(owner, repo, opt = {})
           @http.post("/repos/#{owner}/#{repo}/mirror-sync", opt)
         end
@@ -225,12 +273,8 @@ module Gitea
           @http.patch("/repos/#{owner}/#{repo}/pulls/#{index}", opt)
         end
 
-        def get_repos_pulls_diff_by_owner_repo_index(owner, repo, index, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}.diff", opt)
-        end
-
-        def get_repos_pulls_patch_by_owner_repo_index(owner, repo, index, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}.patch", opt)
+        def get_repos_pulls_by_owner_repo_index_difftype(owner, repo, index, diffType, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}.#{diffType}", opt)
         end
 
         def get_repos_pulls_commits_by_owner_repo_index(owner, repo, index, opt = {})
@@ -243,6 +287,10 @@ module Gitea
 
         def post_repos_pulls_merge_by_owner_repo_index(owner, repo, index, opt = {})
           @http.post("/repos/#{owner}/#{repo}/pulls/#{index}/merge", opt)
+        end
+
+        def delete_repos_pulls_merge_by_owner_repo_index(owner, repo, index, opt = {})
+          @http.delete("/repos/#{owner}/#{repo}/pulls/#{index}/merge", opt)
         end
 
         def post_repos_pulls_requested_reviewers_by_owner_repo_index(owner, repo, index, opt = {})
@@ -259,6 +307,14 @@ module Gitea
 
         def post_repos_pulls_reviews_by_owner_repo_index(owner, repo, index, opt = {})
           @http.post("/repos/#{owner}/#{repo}/pulls/#{index}/reviews", opt)
+        end
+
+        def get_repos_pulls_reviews_by_owner_repo_index_id(owner, repo, index, id, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/reviews/#{id}", opt)
+        end
+
+        def post_repos_pulls_reviews_by_owner_repo_index_id(owner, repo, index, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/pulls/#{index}/reviews/#{id}", opt)
         end
 
         def delete_repos_pulls_reviews_by_owner_repo_index(owner, repo, index, opt = {})
@@ -291,10 +347,6 @@ module Gitea
 
         def post_repos_releases_by_owner_repo(owner, repo, opt = {})
           @http.post("/repos/#{owner}/#{repo}/releases", opt)
-        end
-
-        def get_repos_releases_latest_by_owner_repo(owner, repo, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/releases/latest", opt)
         end
 
         def get_repos_releases_tags_by_owner_repo_tag(owner, repo, tag, opt = {})
@@ -429,28 +481,40 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/transfer", opt)
         end
 
-        def get_repos_wikies_by_owner_repo(owner, repo, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/wikies", opt)
+        def post_repos_transfer_accept_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/transfer/accept", opt)
         end
 
-        def post_repos_wikies_by_owner_repo(owner, repo, opt = {})
-          @http.post("/repos/#{owner}/#{repo}/wikies", opt)
+        def post_repos_transfer_reject_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/transfer/reject", opt)
         end
 
-        def get_repos_wikies_by_owner_repo_pagename(owner, repo, pagename, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/wikies/#{pagename}", opt)
+        def post_repos_wiki_new_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/wiki/new", opt)
         end
 
-        def delete_repos_wikies_by_owner_repo_pagename(owner, repo, pagename, opt = {})
-          @http.delete("/repos/#{owner}/#{repo}/wikies/#{pagename}", opt)
+        def get_repos_wiki_page_by_owner_repo_pagename(owner, repo, pageName, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/wiki/page/#{pageName}", opt)
         end
 
-        def patch_repos_wikies_by_owner_repo_pagename(owner, repo, pagename, opt = {})
-          @http.patch("/repos/#{owner}/#{repo}/wikies/#{pagename}", opt)
+        def delete_repos_wiki_page_by_owner_repo_pagename(owner, repo, pageName, opt = {})
+          @http.delete("/repos/#{owner}/#{repo}/wiki/page/#{pageName}", opt)
         end
 
-        def post_repos_generate_by_template_owner_repo(owner, repo, opt = {})
-          @http.post("/repos/#{owner}/#{repo}/generate", opt)
+        def patch_repos_wiki_page_by_owner_repo_pagename(owner, repo, pageName, opt = {})
+          @http.patch("/repos/#{owner}/#{repo}/wiki/page/#{pageName}", opt)
+        end
+
+        def get_repos_wiki_pages_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/wiki/pages", opt)
+        end
+
+        def get_repos_wiki_revisions_owner_repo_pagename(owner, repo, pageName, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/wiki/revisions/#{pageName}", opt)
+        end
+
+        def post_repos_generate_by_template_owner_repo(temp_owner, temp_repo, opt = {})
+          @http.post("/repos/#{temp_owner}/#{temp_repo}/generate", opt)
         end
 
         def get_repositories_by_id(id, opt = {})
