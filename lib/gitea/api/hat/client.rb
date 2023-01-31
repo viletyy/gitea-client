@@ -39,9 +39,9 @@ module Gitea
         end
   
         include Gitea::Api::Hat::Repository
-        # include Gitea::Api::Hat::Users
-        # include Gitea::Api::Hat::Organization
-        # include Gitea::Api::Hat::Admin
+        include Gitea::Api::Hat::Users
+        include Gitea::Api::Hat::Organization
+        include Gitea::Api::Hat::Admin
       end
     end # Hat 
   end # Api
