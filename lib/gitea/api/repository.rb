@@ -454,6 +454,10 @@ module Gitea
           @http.delete("/repos/#{owner}/#{repo}/subscription", opt)
         end
 
+        def get_repos_tag_name_set_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/tag_name_set", opt)
+        end
+
         def get_repos_tags_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/tags", opt)
         end
