@@ -107,7 +107,7 @@ module Gitea
           return {data: JSON.parse(response), total_data: response.headers[:x_total_count]}
         else 
           return JSON.parse(response) 
-        end #rescue {}
+        end rescue {}
       end
 
       def get_user_agent
