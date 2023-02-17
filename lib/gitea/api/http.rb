@@ -108,8 +108,8 @@ module Gitea
         end       
 
         begin
-          if response.headers.has_key?(:x_total)
-            return {data: JSON.parse(response), total_data: response.headers[:x_total]}
+          if response.headers.has_key?(:x_total) || response.headers.has_key?(:x_total_count)
+            return {data: JSON.parse(response), total_data: response.headers[:x_total_count]}
           else 
             return JSON.parse(response) 
           end 
