@@ -26,6 +26,10 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/hooks", opt)
         end 
 
+        def patch_repos_hooks_by_owner_repo_id(owner, repo, id, opt = {})
+          @http.patch("/repos/#{owner}/#{repo}/hooks/#{id}", opt)
+        end
+
         def get_repos_hooks_hooktasks_by_owner_repo_id(owner, repo, id, opt = {})
           @http.get("/repos/#{owner}/#{repo}/hooks/#{id}/hooktasks", opt)
         end
