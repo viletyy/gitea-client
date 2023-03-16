@@ -186,15 +186,15 @@ module Gitea
         @http.get("/users/#{username}/subscriptions", opt)
       end
 
-      def get_users_token_by_username(username, opt={})
+      def get_users_tokens_by_username(username, opt={})
         @http.get("/users/#{username}/tokens", opt)
       end
 
-      def post_users_token_by_username(username, opt={})
+      def post_users_tokens_by_username(username, opt={})
         @http.post("/users/#{username}/tokens", opt)
       end
 
-      def delete_users_token_by_username_token(username, token, opt={})
+      def delete_users_tokens_by_username_token(username, token, opt={})
         @http.delete("/users/#{username}/tokens/#{token}", opt)
       end
 
