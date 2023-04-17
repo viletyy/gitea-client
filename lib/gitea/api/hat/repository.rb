@@ -94,6 +94,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/contributors", opt)
         end
 
+        def get_repos_contributors_stat_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/contributors/stat", opt)
+        end
+
         def get_repos_code_stats_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/code_stats", opt)
         end
