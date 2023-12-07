@@ -74,6 +74,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/tags", opt)
         end
 
+        def get_repos_tags_by_owner_repo_tag(owner, repo, tag, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/tags/#{tag}", opt)
+        end
+
         def get_repos_branch_tag_count_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/branch_tag_count", opt)
         end
@@ -132,26 +136,6 @@ module Gitea
 
         def get_repos_pulls_files_by_owner_repo_index(owner, repo, index, opt = {})
           @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/files", opt)
-        end
-
-        def get_repos_wikies_by_owner_repo(owner, repo, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/wikies", opt)
-        end
-
-        def post_repos_wikies_by_owner_repo(owner, repo, opt = {})
-          @http.post("/repos/#{owner}/#{repo}/wikies", opt)
-        end
-
-        def patch_repos_wikies_by_owner_repo_pagename(owner, repo, pageName, opt = {})
-          @http.patch("/repos/#{owner}/#{repo}/wikies/#{pageName}", opt)
-        end
-
-        def get_repos_wikies_by_owner_repo_pagename(owner, repo, pageName, opt = {})
-          @http.get("/repos/#{owner}/#{repo}/wikies/#{pageName}", opt)
-        end
-
-        def delete_repos_wikies_by_owner_repo_pagename(owner, repo, pageName, opt = {})
-          @http.delete("/repos/#{owner}/#{repo}/wikies/#{pageName}", opt)
         end
 
         def post_repos_contents_batch_by_owner_repo(owner, repo, opt = {})
