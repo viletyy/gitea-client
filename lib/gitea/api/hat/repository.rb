@@ -66,6 +66,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/branches/branches_slice", opt)
         end
 
+        def post_repos_branches_restore_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/branches/restore", opt)
+        end
+
         def get_repos_tag_name_set_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/tag_name_set", opt)
         end
