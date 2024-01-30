@@ -94,8 +94,12 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/readme/#{filepath}", opt)
         end
 
-        def get_repos_commits_slice_by_owner_repo(owner, repo, filepath, opt = {})
+        def get_repos_commits_slice_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/commits_slice", opt)
+        end
+
+        def get_repos_recent_commits_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/recent_commits", opt)
         end
 
         def get_repos_contributors_by_owner_repo(owner, repo, opt = {})
