@@ -2,6 +2,23 @@ module Gitea
   module Api
     module Hat
       module Repository
+
+        def get_repos_actions_by_owner_repo(owner, repo, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/actions", opt)
+        end
+
+        def post_repos_actions_runs_jobs_by_owner_repo_run_job(owner, repo, run, job, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/actions/runs/#{run}/jobs/#{job}", opt)
+        end
+
+        def post_repos_actions_disable(owner, repo, opt= {})
+          @http.post("/repos/#{owner}/#{repo}/actions/disable", opt)
+        end
+
+        def post_repos_actions_enable(owner, repo, opt= {})
+          @http.post("/repos/#{owner}/#{repo}/actions/enable", opt)
+        end
+
         def get_repos_contents_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/contents", opt)
         end
