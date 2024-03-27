@@ -19,6 +19,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install gitea-client
+    
 
 ## Usage
 
