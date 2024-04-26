@@ -7,6 +7,7 @@ module Gitea
       def initialize(response)
         @http_code = response.code 
         @attrs = JSON.parse(response.body) rescue {}
+        @message = @attrs['message']
       end
 
       def to_s
