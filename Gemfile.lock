@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitea-client (1.4.5)
+    gitea-client (1.5.7)
       rest-client (~> 2.1.0)
 
 GEM
@@ -48,6 +48,7 @@ GEM
 
 PLATFORMS
   -darwin-21
+  arm64-darwin-21
   x86_64-darwin-20
 
 DEPENDENCIES

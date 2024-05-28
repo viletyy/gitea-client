@@ -11,6 +11,18 @@ module Gitea
           @http.post("/repos/#{owner}/#{repo}/actions/runs/#{run}/jobs/#{job}", opt)
         end
 
+        def post_repos_actions_runs_rerun_by_owner_repo_run(owner, repo, run, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/actions/runs/#{run}/rerun", opt)
+        end
+
+        def post_repos_actions_runs_jobs_rerun_by_owner_repo_run_job(owner, repo, run, job, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/actions/runs/#{run}/jobs/#{job}/rerun", opt)
+        end
+
+        def get_repos_actions_runs_jobs_logs_by_owner_repo_run_job(owner, repo, run, job, opt = {})
+          @http.get("/repos/#{owner}/#{repo}/actions/runs/#{run}/jobs/#{job}/logs")
+        end
+
         def post_repos_actions_disable(owner, repo, opt= {})
           @http.post("/repos/#{owner}/#{repo}/actions/disable", opt)
         end
