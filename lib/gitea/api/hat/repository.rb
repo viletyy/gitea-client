@@ -7,6 +7,10 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/actions", opt)
         end
 
+        def post_repos_actions_runs_by_owner_repo(owner, repo, opt = {})
+          @http.post("/repos/#{owner}/#{repo}/actions/runs", opt)
+        end
+
         def post_repos_actions_runs_jobs_by_owner_repo_run_job(owner, repo, run, job, opt = {})
           @http.post("/repos/#{owner}/#{repo}/actions/runs/#{run}/jobs/#{job}", opt)
         end
