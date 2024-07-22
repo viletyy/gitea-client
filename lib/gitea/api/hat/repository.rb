@@ -3,6 +3,10 @@ module Gitea
     module Hat
       module Repository
 
+        def delete_repos_by_owner_repo(owner, repo, opt = {})
+          @http.delete("/repos/#{owner}/#{repo}", opt)
+        end
+
         def get_repos_actions_by_owner_repo(owner, repo, opt = {})
           @http.get("/repos/#{owner}/#{repo}/actions", opt)
         end
