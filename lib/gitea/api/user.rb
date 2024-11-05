@@ -6,6 +6,14 @@ module Gitea
         @http.get("/user", opt)
       end
 
+      def put_user_actions_secrets_by_secretname(secretname, opt={})
+        @http.put("/user/actions/secrets/#{secretname}", opt)
+      end
+
+      def delete_user_actions_secrets_by_secretname(secretname, opt={})
+        @http.delete("/user/actions/secrets/#{secretname}", opt)
+      end
+
       def get_user_applications_oauth2(opt={})
         @http.get("/user/applications/oauth2", opt)
       end
@@ -24,6 +32,14 @@ module Gitea
 
       def patch_user_applications_oauth2_by_id(id, opt={})
         @http.patch("/user/applications/oauth2/#{id}", opt)
+      end
+
+      def post_user_avatar(opt={})
+        @http.post("/user/avatar", opt)
+      end
+
+      def delete_user_avatar(opt={})
+        @http.delete("/user/avatar", opt)
       end
 
       def get_user_emails(opt={})
@@ -82,6 +98,26 @@ module Gitea
         @http.delete("/user/gpg_keys/#{id}", opt)
       end
 
+      def get_user_hooks(opt={})
+        @http.get("/user/hooks", opt)
+      end
+
+      def post_user_hooks(opt={})
+        @http.post("/user/hooks", opt)
+      end
+
+      def get_user_hooks_by_id(id, opt={})
+        @http.get("/user/hooks/#{id}", opt)
+      end
+
+      def delete_user_hooks_by_id(id, opt={})
+        @http.delete("/user/hooks/#{id}", opt)
+      end
+
+      def patch_user_hooks_by_id(id, opt={})
+        @http.patch("/user/hooks/#{id}", opt)
+      end
+
       def get_user_keys(opt={})
         @http.get("/user/keys", opt)
       end
@@ -100,6 +136,10 @@ module Gitea
 
       def get_user_repos(opt={})
         @http.get("/user/repos", opt)
+      end
+
+      def post_user_repos(opt={})
+        @http.post("/user/repos", opt)
       end
 
       def get_user_settings(opt={})
@@ -150,8 +190,8 @@ module Gitea
         @http.get("/users/#{username}", opt)
       end
 
-      def get_users_following_by_follower_followee(follower, followee, opt={})
-        @http.get("/users/#{follower}/following/#{followee}", opt)
+      def get_users_activities_feeds_by_username(username, opt={})
+        @http.get("/users/#{username}/activities/feeds", opt)
       end
 
       def get_users_followers_by_username(username, opt={})
@@ -159,7 +199,11 @@ module Gitea
       end
 
       def get_users_following_by_username(username, opt={})
-        @http.get("/user/#{username}/following", opt)
+        @http.get("/users/#{username}/following", opt)
+      end
+
+      def get_users_following_by_username_target(username, target, opt={})
+        @http.get("/users/#{username}/following/#{target}", opt)
       end
 
       def get_users_gpg_keys_by_username(username, opt={})

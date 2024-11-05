@@ -29,6 +29,26 @@ module Gitea
         @http.patch("/repos/#{owner}/#{repo}/issues/comments/#{id}", opt)
       end
 
+      def get_repos_issues_comments_assets_by_owner_repo_id(owner, repo, id, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/comments/#{id}/assets", opt)
+      end
+
+      def post_repos_issues_comments_assets_by_owner_repo_id(owner, repo, id, opt={})
+        @http.post("/repos/#{owner}/#{repo}/issues/comments/#{id}/assets", opt)
+      end
+
+      def get_repos_issues_comments_assets_by_owner_repo_id_attachment_id(owner, repo, id, attachment_id, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/comments/#{id}/assets/#{attachment_id}", opt)
+      end
+
+      def delete_repos_issues_comments_assets_by_owner_repo_id_attachment_id(owner, repo, id, attachment_id, opt={})
+        @http.delete("/repos/#{owner}/#{repo}/issues/comments/#{id}/assets/#{attachment_id}", opt)
+      end
+
+      def patch_repos_issues_comments_assets_by_owner_repo_id_attachment_id(owner, repo, id, attachment_id, opt={})
+        @http.patch("/repos/#{owner}/#{repo}/issues/comments/#{id}/assets/#{attachment_id}", opt)
+      end
+
       def get_repos_issues_comments_reactions_by_owner_repo_id(owner, repo, id, opt = {})
         @http.get("/repos/#{owner}/#{repo}/issues/comments/#{id}/reactions", opt)
       end
@@ -53,6 +73,38 @@ module Gitea
         @http.patch("/repos/#{owner}/#{repo}/issues/#{index}", opt)
       end
 
+      def get_repos_issues_assets_by_owner_repo_index(owner, repo, index, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/#{index}/assets", opt)
+      end
+
+      def post_repos_issues_assets_by_owner_repo_index(owner, repo, index, opt={})
+        @http.post("/repos/#{owner}/#{repo}/issues/#{index}/assets", opt)
+      end
+
+      def get_repos_issues_assets_by_owner_repo_index_attachment_id(owner, repo, index, attachment_id, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/#{index}/assets/#{attachment_id}", opt)
+      end
+
+      def delete_repos_issues_assets_by_owner_repo_index_attachment_id(owner, repo, index, attachment_id, opt={})
+        @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/assets/#{attachment_id}", opt)
+      end
+
+      def patch_repos_issues_assets_by_owner_repo_index_attachment_id(owner, repo, index, attachment_id, opt={})
+        @http.patch("/repos/#{owner}/#{repo}/issues/#{index}/assets/#{attachment_id}", opt)
+      end
+
+      def get_repos_issues_blocks_by_owner_repo_index(owner, repo, index, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/#{index}/blocks", opt)
+      end
+
+      def post_repos_issues_blocks_by_owner_repo_index(owner, repo, index, opt={})
+        @http.post("/repos/#{owner}/#{repo}/issues/#{index}/blocks", opt)
+      end
+
+      def delete_repos_issues_blocks_by_owner_repo_index(owner, repo, index, opt={})
+        @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/blocks", opt)
+      end
+
       def get_repos_issues_comments_by_owner_repo_index(owner, repo, index, opt = {})
         @http.get("/repos/#{owner}/#{repo}/issues/#{index}/comments", opt)
       end
@@ -63,6 +115,18 @@ module Gitea
 
       def post_repos_issues_deadline_by_owner_repo_index(owner, repo, index, opt = {})
         @http.post("/repos/#{owner}/#{repo}/issues/#{index}/deadline", opt)
+      end
+
+      def get_repos_issues_dependencies_by_owner_repo_index(owner, repo, index, opt={})
+        @http.get("/repos/#{owner}/#{repo}/issues/#{index}/dependencies", opt)
+      end
+
+      def post_repos_issues_dependencies_by_owner_repo_index(owner, repo, index, opt={})
+        @http.post("/repos/#{owner}/#{repo}/issues/#{index}/dependencies", opt)
+      end
+
+      def delete_repos_issues_dependencies_by_owner_repo_index(owner, repo, index, opt={})
+        @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/dependencies", opt)
       end
 
       def get_repos_issues_labels_by_owner_repo_index(owner, repo, index, opt = {})
@@ -83,6 +147,18 @@ module Gitea
 
       def delete_repos_issues_labels_by_owner_repo_index_id(owner, repo, index, id, opt = {})
         @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/labels/#{id}", opt)
+      end
+
+      def post_repos_issues_pin_by_owner_repo_index(owner, repo, index, opt={})
+        @http.post("/repos/#{owner}/#{repo}/issues/#{index}/pin", opt)
+      end
+
+      def delete_repos_issues_pin_by_owner_repo_index(owner, repo, index, opt={})
+        @http.delete("/repos/#{owner}/#{repo}/issues/#{index}/pin", opt)
+      end
+
+      def patch_repos_issues_pin_by_owner_repo_index_position(owner, repo, index, position, opt={})
+        @http.patch("/repos/#{owner}/#{repo}/issues/#{index}/pin/#{position}", opt)
       end
 
       def get_repos_issues_reactions_by_owner_repo_index(owner, repo, index, opt = {})

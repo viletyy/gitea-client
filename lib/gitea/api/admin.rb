@@ -9,6 +9,34 @@ module Gitea
         @http.post("/admin/cron/#{task}", opt)
       end
 
+      def get_admin_emails(opt={})
+        @http.get("/admin/emails", opt)
+      end
+
+      def get_admin_emails_search(opt={})
+        @http.get("/admin/emails/search", opt)
+      end
+
+      def get_admin_hooks(opt={})
+        @http.get("/admin/hooks", opt)
+      end
+
+      def post_admin_hooks(opt={})
+        @http.post("/admin/hooks", opt)
+      end
+
+      def get_admin_hooks_by_id(id, opt={})
+        @http.get("/admin/hooks/#{id}", opt)
+      end
+
+      def delete_admin_hooks_by_id(id, opt={})
+        @http.delete("/admin/hooks/#{id}", opt)
+      end
+
+      def patch_admin_hooks_by_id(id, opt={})
+        @http.patch("/admin/hooks/#{id}", opt)
+      end
+
       def get_admin_orgs(opt={})
         @http.get("/admin/orgs", opt)
       end
@@ -51,6 +79,10 @@ module Gitea
 
       def post_admin_users_orgs_by_username(username, opt={})
         @http.post("/admin/users/#{username}/orgs", opt)
+      end
+
+      def post_admin_users_rename_by_username(username, opt={})
+        @http.post("/admin/users/#{username}/rename", opt)
       end
 
       def post_admin_users_repos_by_username(username, opt={})

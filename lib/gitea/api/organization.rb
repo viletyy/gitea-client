@@ -21,6 +21,30 @@ module Gitea
         @http.patch("/orgs/#{org}", opt)
       end
 
+      def get_orgs_actions_secrets_org(org, opt={})
+        @http.get("/orgs/#{org}/actions/secrets", opt)
+      end
+
+      def put_orgs_actions_secrets_by_org_secretname(org, secretname, opt={})
+        @http.put("/orgs/#{org}/actions/secrets/#{secretname}", opt)
+      end
+
+      def delete_orgs_actions_secrets_by_org_secretname(org, secretname, opt={})
+        @http.delete("/orgs/#{org}/actions/secrets/#{secretname}", opt)
+      end
+
+      def get_orgs_activities_feeds_by_org(org, opt={})
+        @http.get("/orgs/#{org}/activities/feeds", opt)
+      end
+
+      def post_orgs_avatar_by_org(org, opt={})
+        @http.post("/orgs/#{org}/avatar", opt)
+      end
+
+      def delete_orgs_avatar_by_orb(org, opt={})
+        @http.delete("/orgs/#{org}/avatar", opt={})
+      end
+
       def get_orgs_hooks_by_org(org, opt={})
         @http.get("/orgs/#{org}/hooks", opt)
       end
@@ -105,7 +129,7 @@ module Gitea
         @http.post("/orgs/#{org}/teams", opt)
       end
 
-      def get_orgs_temas_search_by_org(org, opt={})
+      def get_orgs_teams_search_by_org(org, opt={})
         @http.get("/orgs/#{org}/teams/search", opt)
       end
 
@@ -119,6 +143,10 @@ module Gitea
 
       def patch_teams_by_id(id, opt={})
         @http.patch("/teams/#{id}", opt)
+      end
+
+      def get_teams_activities_feeds_by_id(id, opt={})
+        @http.get("/teams/#{id}/activities/feeds", opt)
       end
 
       def get_teams_members_by_id(id, opt={})

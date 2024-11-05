@@ -15,7 +15,7 @@ module Gitea
       end
 
       def get_packages_files_by_owner_type_name_version(owner, type, name, version, opt = {})
-        @http.get("/packages/#{owner}/#{type}/#{name}/#{version}", opt)
+        @http.get("/packages/#{owner}/#{type}/#{name}/#{version}/files", opt)
       end
     end # Package 
   end # Api 
