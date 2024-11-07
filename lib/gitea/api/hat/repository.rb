@@ -47,6 +47,14 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/commits/#{sha}/diff", opt)
         end
 
+        def get_repos_commits_files_by_owner_repo_sha(owner, repo, sha, opt={})
+          @http.get("/repos/#{owner}/#{repo}/commits/#{sha}/files", opt)
+        end
+
+        def get_repos_commits_files_by_owner_repo_sha_filepath(owner, repo, sha, filepath, opt={})
+          @http.get("/repos/#{owner}/#{repo}/commits/#{sha}/files/#{filepath}", opt)
+        end
+
         def post_repos_hooks_by_owner_repo(owner, repo, opt = {}) 
           @http.post("/repos/#{owner}/#{repo}/hooks", opt)
         end 
@@ -155,6 +163,14 @@ module Gitea
           @http.get("/repos/#{owner}/#{repo}/compare/#{baseRef}...#{headRef}", opt)
         end
 
+        def get_repos_compare_files_by_owner_repo_baseref_headref(owner, repo, baseRef, headRef, opt={})
+          @http.get("/repos/#{owner}/#{repo}/compare/#{baseRef}...#{headRef}/files", opt)
+        end
+
+        def get_repos_compare_files_by_owner_repo_baseref_headref_filepath(owner, repo, baseRef, headRef, filepath, opt={})
+          @http.get("/repos/#{owner}/#{repo}/compare/#{baseRef}...#{headRef}/files/#{filepath}", opt)
+        end
+
         def post_repos_transfer_by_owner_repo(owner, repo, opt = {})
           @http.post("/repos/#{owner}/#{repo}/transfer", opt)
         end
@@ -169,6 +185,10 @@ module Gitea
 
         def get_repos_pulls_files_by_owner_repo_index(owner, repo, index, opt = {})
           @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/files", opt)
+        end
+
+        def get_repos_pulls_files_by_owner_repo_index_filepath(owner, repo, index, filepath, opt={})
+          @http.get("/repos/#{owner}/#{repo}/pulls/#{index}/files/#{filepath}", opt)
         end
 
         def post_repos_contents_batch_by_owner_repo(owner, repo, opt = {})
